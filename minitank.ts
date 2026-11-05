@@ -1,4 +1,5 @@
-//% color="#5269F4" icon="\uf1b9" block="Mini Tank"
+
+ //% color="#5269F4" icon="\uf1b9" block="Mini Tank"
 namespace miniTank {
 
     export enum Motor {
@@ -18,7 +19,8 @@ namespace miniTank {
     }
 
     /**
-     * Einen oder beide Motoren steuern
+     * Einen oder beide Motoren steuern.
+     * Tempo 0 bedeutet Motor aus.
      */
     //% blockId=mini_tank_motor
     //% block="Motor %motor Richtung %richtung Tempo %tempo"
@@ -38,35 +40,20 @@ namespace miniTank {
             tempo = 1023
         }
 
-        // Motor A (vorläufig links)
+        let richtungsSignal = richtung == Richtung.Vorwaerts ? 1 : 0
+
+        // Motor A (links)
         if (motor == Motor.Links || motor == Motor.Beide) {
             pins.analogWritePin(AnalogPin.P1, 0)
-            pins.digitalWritePin(DigitalPin.P0, richtung)
+            pins.digitalWritePin(DigitalPin.P0, richtungsSignal)
             pins.analogWritePin(AnalogPin.P1, tempo)
         }
 
-        // Motor B (vorläufig rechts)
+        // Motor B (rechts)
         if (motor == Motor.Rechts || motor == Motor.Beide) {
             pins.analogWritePin(AnalogPin.P3, 0)
-            pins.digitalWritePin(DigitalPin.P2, richtung)
+            pins.digitalWritePin(DigitalPin.P2, richtungsSignal)
             pins.analogWritePin(AnalogPin.P3, tempo)
-        }
-    }
-
-    /**
-     * Einen oder beide Motoren anhalten
-     */
-    //% blockId=mini_tank_stop
-    //% block="Motor %motor anhalten"
-    //% weight=90
-    export function anhalten(motor: Motor): void {
-
-        if (motor == Motor.Links || motor == Motor.Beide) {
-            pins.analogWritePin(AnalogPin.P1, 0)
-        }
-
-        if (motor == Motor.Rechts || motor == Motor.Beide) {
-            pins.analogWritePin(AnalogPin.P3, 0)
         }
     }
 }
