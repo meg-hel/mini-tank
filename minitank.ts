@@ -1,5 +1,5 @@
 
- //% color="#5269F4" icon="\uf1b9" block="Mini Tank"
+ //% color="#0D47A1" icon="\uf1b9" block="Mini Tank"
 namespace miniTank {
 
     export enum Motor {
