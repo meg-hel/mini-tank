@@ -24,6 +24,7 @@ namespace miniTank {
      */
     //% blockId=mini_tank_motor
     //% block="Motor %motor Richtung %richtung Tempo %tempo"
+    //% tempo.shadow=math_number_minmax    
     //% tempo.min=0 tempo.max=700 tempo.defl=200
     //% weight=100
     export function motor(
