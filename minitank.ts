@@ -25,7 +25,7 @@ namespace miniTank {
     //% blockId=mini_tank_motor
     //% block="Motor %motor Richtung %richtung Tempo %tempo"
     //% tempo.shadow=math_number_minmax    
-    //% tempo.min=0 tempo.max=700 tempo.defl=200
+    //% tempo.min=0 tempo.max=300 tempo.defl=200
     //% weight=100
     export function motor(
         motor: Motor,
@@ -37,8 +37,8 @@ namespace miniTank {
             tempo = 0
         }
 
-        if (tempo > 700) {
-            tempo = 700
+        if (tempo > 300) {
+            tempo = 300
         }
 
         // Richtung für beide Motoren invertiert
