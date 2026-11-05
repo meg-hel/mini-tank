@@ -24,7 +24,7 @@ namespace miniTank {
      */
     //% blockId=mini_tank_motor
     //% block="Motor %motor Richtung %richtung Tempo %tempo"
-    //% tempo.min=0 tempo.max=1023 tempo.defl=200
+    //% tempo.min=0 tempo.max=700 tempo.defl=200
     //% weight=100
     export function motor(
         motor: Motor,
@@ -36,10 +36,11 @@ namespace miniTank {
             tempo = 0
         }
 
-        if (tempo > 1023) {
-            tempo = 1023
+        if (tempo > 700) {
+            tempo = 700
         }
 
+        // Richtung für beide Motoren invertiert
         let richtungsSignal = richtung == Richtung.Vorwaerts ? 1 : 0
 
         // Motor A (links)
