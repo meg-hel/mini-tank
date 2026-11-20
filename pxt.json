@@ -1,9 +1,9 @@
+
 {
     "name": "mini-tank",
     "description": "",
     "dependencies": {
-        "core": "*",
-        "v1": "*"
+        "core": "*"
     },
     "files": [
         "main.blocks",
